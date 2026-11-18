@@ -58,10 +58,10 @@ public class FormularioCarniceria extends JFrame {
 
         JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
 
-        JButton btnGuardar = new JButton("Guardar (Create)");
-        JButton btnListar = new JButton("Listar Todo (Read)");
-        JButton btnActualizar = new JButton("Actualizar (Update)");
-        JButton btnEliminar = new JButton("Eliminar (Delete)");
+        JButton btnGuardar = new JButton("Guardar");
+        JButton btnListar = new JButton("Listar Todo");
+        JButton btnActualizar = new JButton("Actualizar");
+        JButton btnEliminar = new JButton("Eliminar");
         JButton btnLimpiar = new JButton("Limpiar Campos");
 
         panelBotones.add(btnGuardar);
@@ -127,6 +127,15 @@ public class FormularioCarniceria extends JFrame {
         if (kilos < 0 || precioKilo < 0) {
             throw new IllegalArgumentException("Los kilos y el precio no pueden ser negativos.");
         }
+
+        if (kilos == 0 || precioKilo == 0) {
+            throw new IllegalArgumentException("Los kilos y el precio no pueden ser cero.");
+        }
+
+        if (kilos > 10000) {
+            throw new IllegalArgumentException("La cantidad de kilos no puede superar los 10,000 kg.");
+        }
+
 
         // Se quitan comas para no romper el formato CSV del archivo
         String especial1 = txtCampoEspecial1.getText().trim().replace(",", " ");
