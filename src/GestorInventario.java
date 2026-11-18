@@ -21,13 +21,11 @@ public class GestorInventario {
         }
     }
 
-    // ==========================================
-    // C - CREATE
-    // ==========================================
+    //Crea el archivo si no existe y lo deja vacío
     public boolean guardarProducto(Producto producto) {
         // try-with-resources con FileWriter en modo append (true)
         try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(rutaArchivo, true)))) {
-            pw.println(producto.toCSV());
+            pw.println(producto.convertirCSV());
             return true;
         } catch (IOException e) {
             System.err.println("Error al guardar en el archivo: " + e.getMessage());
@@ -35,9 +33,7 @@ public class GestorInventario {
         }
     }
 
-    // ==========================================
-    // R - READ
-    // ==========================================
+    //lee el archivo y devuelve una lista de productos, incluyendo Res, Cerdo y Pollo
     public List<Producto> listarProductos() {
         List<Producto> lista = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))) {
@@ -82,9 +78,7 @@ public class GestorInventario {
         return lista;
     }
 
-    // ==========================================
-    // U - UPDATE
-    // ==========================================
+    //actualiza los productos en el archivo, reemplazando el producto con el mismo ID por el nuevo producto
     public boolean actualizarProducto(String id, Producto productoActualizado) {
         List<Producto> productos = listarProductos();
         boolean encontrado = false;
@@ -103,9 +97,7 @@ public class GestorInventario {
         return encontrado;
     }
 
-    // ==========================================
-    // D - DELETE
-    // ==========================================
+    // Elimina un producto por su ID y reescribe el archivo
     public boolean eliminarProducto(String id) {
         List<Producto> productos = listarProductos();
         boolean eliminado = productos.removeIf(p -> p.getId().equalsIgnoreCase(id));
@@ -138,7 +130,7 @@ public class GestorInventario {
     private void reescribirArchivo(List<Producto> productos) {
         try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(rutaArchivo, false)))) {
             for (Producto p : productos) {
-                pw.println(p.toCSV());
+                pw.println(p.convertirCSV());
             }
         } catch (IOException e) {
             System.err.println("Error al reescribir el archivo: " + e.getMessage());

@@ -23,7 +23,7 @@ public class FormularioCarniceria extends JFrame {
     private final JLabel lblValorTotal = new JLabel("Valor total del inventario: $0");
 
     public FormularioCarniceria() {
-        super("Inventario Carnicería - Persistencia en .TXT (POO)");
+        super("Inventario Carnicería donde chepe");
 
         this.gestor = new GestorInventario("inventario_carniceria.txt");
 
@@ -182,7 +182,7 @@ public class FormularioCarniceria extends JFrame {
             areaSalida.setText("El inventario está vacío.");
         } else {
             for (Producto p : productos) {
-                areaSalida.append(p.toString() + "\n");
+                areaSalida.append(p.convertirString() + "\n");
             }
         }
         lblValorTotal.setText(String.format("Valor total del inventario: $%,.0f", gestor.calcularValorInventario()));

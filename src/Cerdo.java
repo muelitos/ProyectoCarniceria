@@ -25,12 +25,12 @@ public class Cerdo extends Producto {
     }
 
     @Override
-    public String toCSV() {
+    public String convertirCSV() {
         return "CERDO," + id + "," + nombre + "," + kilos + "," + precioKilo + "," + corte + "," + fechaVencimiento;
     }
 
     @Override
-    public String toString() {
-        return "[CERDO] " + super.toString() + " | Corte: " + corte + " | Vence: " + fechaVencimiento;
+    public String convertirString() {
+        return "[CERDO] " + super.convertirString() + " | Corte: " + corte + " | Vence: " + fechaVencimiento;
     }
 }

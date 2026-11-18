@@ -25,12 +25,12 @@ public class Res extends Producto {
     }
 
     @Override
-    public String toCSV() {
+    public String convertirCSV() {
         return "RES," + id + "," + nombre + "," + kilos + "," + precioKilo + "," + corte + "," + diasMaduracion;
     }
 
     @Override
-    public String toString() {
-        return "[RES] " + super.toString() + " | Corte: " + corte + " | Días de maduración: " + diasMaduracion;
+    public String convertirString() {
+        return "[RES] " + super.convertirString() + " | Corte: " + corte + " | Días de maduración: " + diasMaduracion;
     }
 }

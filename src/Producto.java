@@ -48,12 +48,12 @@ public class Producto {
         return kilos * precioKilo;
     }
 
-    public String toCSV() {
+    public String convertirCSV() {
         return "PRODUCTO," + id + "," + nombre + "," + kilos + "," + precioKilo;
     }
 
-    @Override
-    public String toString() {
+    
+    public String convertirString() {
         return "ID: " + id + " | Nombre: " + nombre + " | Kilos: " + kilos
                 + " | Precio/kg: $" + precioKilo + " | Valor total: $" + getValorTotal();
     }

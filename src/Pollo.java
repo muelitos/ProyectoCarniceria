@@ -25,12 +25,12 @@ public class Pollo extends Producto {
     }
 
     @Override
-    public String toCSV() {
+    public String convertirCSV() {
         return "POLLO," + id + "," + nombre + "," + kilos + "," + precioKilo + "," + parte + "," + proveedor;
     }
 
     @Override
-    public String toString() {
-        return "[POLLO] " + super.toString() + " | Parte: " + parte + " | Proveedor: " + proveedor;
+    public String convertirString() {
+        return "[POLLO] " + super.convertirString() + " | Parte: " + parte + " | Proveedor: " + proveedor;
     }
 }

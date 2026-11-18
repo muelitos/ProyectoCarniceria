@@ -1,1 +1,0 @@
-POLLO,132,pollo,13.0,29000.0,muslo,Mariana
